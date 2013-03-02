@@ -10,3 +10,7 @@ Content is presumably still copyright Zondervan 1984 and use is presumably
 still governed by their terms and conditions. This repository is simply an
 easier-to-access form of archive.
 
+Two chapters in Song of Songs were unreadable. Some other content may need
+to be verified, also; the slurp script was sometimes "fobbed off" onto the
+newer-edition NIV - this should be considered a bug in this collection,
+please report any instances sighted.
