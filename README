@@ -1,0 +1,12 @@
+Bible Gateway (www.biblegateway.com) has pulled down its NIV-1984 translation
+of the Bible. This is disappointing, especially for those of us who have
+used Bible Gateway as a means of reading electronically what the rest of the
+congregation is reading in their paper Bibles. Fortunately, the Internet
+Archive never forgets anything, so I devised this script to fetch all the
+content of this translation of the Bible. It's a little messy, but that may
+change if I find the time.
+
+Content is presumably still copyright Zondervan 1984 and use is presumably
+still governed by their terms and conditions. This repository is simply an
+easier-to-access form of archive.
+
