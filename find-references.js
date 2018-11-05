@@ -23,7 +23,8 @@ function find_refs(obj) {
 				ref.className = "niv84-scripture-reference";
 				nodes.push(ref);
 				const popup = document.createElement("div");
-				popup.innerHTML = '<iframe src="' + base + match[i] + '+' + match[i+1] + '.html"></iframe>';
+				//TODO: Lazily load (probably in response to a hover event or something)
+				popup.innerHTML = '<iframe src="' + base + match[i].replace(" ", "%2520") + '+' + match[i+1] + '.html"></iframe>';
 				popup.className = "niv84-scripture-popup";
 				nodes.push(popup);
 				nodes.push(document.createTextNode(match[i+2]));
