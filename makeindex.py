@@ -32,8 +32,8 @@ def generate_table(books, heading):
 	</table>
 """
 
-OT = "Genesis Exodus Leviticus Numbers Deuteronomy #Chronicles"
-NT = "Matthew Mark Luke John #Peter"
+OT = "Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth #Samuel #Kings #Chronicles Ezra Nehemiah Esther Job Psalm Proverbs Song%20of%20Songs Ecclesiastes Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi"
+NT = "Matthew Mark Luke John Acts Romans #Corinthians Galatians Ephesians Philippians Colossians #Thessalonians #Timothy Titus Philemon Hebrews James #Peter #John Jude Revelation"
 OT_table = generate_table(OT, "Old Testament")
 NT_table = generate_table(NT, "New Testament")
 
