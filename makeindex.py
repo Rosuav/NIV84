@@ -43,6 +43,7 @@ with open("Bible/index.html", "w") as f:
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>NIV84</title>
 		<link rel="stylesheet" href="main.css">
 	</head>
