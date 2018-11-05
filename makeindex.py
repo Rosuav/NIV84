@@ -1,6 +1,14 @@
+import os
+import fnmatch
+dir = sorted(os.listdir("Bible"))
+
 def generate_book(book):
-	chapters = "1 2 3".split() # FIXME
-	chapters = [f'<li><a href="{book}%2B{chap}.html">1</a></li>\n' for chap in chapters]
+	if book.startswith("#"):
+		return "..." # FIXME
+	prefix = book + "+"
+	chapters = [int(fn[len(prefix):-5]) for fn in fnmatch.filter(dir, prefix + "*.html")]
+	chapters.sort()
+	chapters = [f'<li><a href="{book}%2B{chap}.html">{chap}</a></li>\n' for chap in chapters]
 	return f"""	<tr><td>{book}</td><td><ul>
 		{"		".join(chapters)}
 		</ul></td></tr>
