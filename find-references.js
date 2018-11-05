@@ -29,6 +29,7 @@ function find_refs(obj) {
 				nodes.push(document.createTextNode(match[i+2]));
 			}
 			obj.replaceWith(...nodes);
+			obj = nodes[nodes.length - 1]; //Chain to the new next-sibling
 		}
 	} else {
 		//DOM node. Recurse.
