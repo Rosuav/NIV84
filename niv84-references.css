@@ -3,10 +3,17 @@ abbr.niv84-scripture-reference {
 }
 
 div.niv84-scripture-popup {
+	display: inline;
 	position: absolute;
 	visibility: hidden;
+	border: 0.1em solid green;
+	background-color: #a0f0c0;
+	padding: 0.25em;
 }
 
 abbr.niv84-scripture-reference:hover + div.niv84-scripture-popup {
+	visibility: visible;
+}
+div.niv84-scripture-popup:hover { /* Keep the popup visible if the mouse is over it */
 	visibility: visible;
 }
