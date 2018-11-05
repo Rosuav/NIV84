@@ -11,7 +11,6 @@ function find_refs(obj) {
 		if (match.length > 1)
 		{
 			const nodes = [document.createTextNode(match[0])]; //Initial text
-			console.log("Checking", obj.data, "and finding", match);
 			for (let i = 1; i < match.length; i += 3)
 			{
 				const ref = document.createElement("abbr");
@@ -19,6 +18,10 @@ function find_refs(obj) {
 				ref.title = "Scripture reference";
 				ref.className = "niv84-scripture-reference";
 				nodes.push(ref);
+				const popup = document.createElement("div");
+				popup.appendChild(document.createTextNode("... this is where the text would go ..."));
+				popup.className = "niv84-scripture-popup";
+				nodes.push(popup);
 				nodes.push(document.createTextNode(match[i+2]));
 			}
 			obj.replaceWith(...nodes);

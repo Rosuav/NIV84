@@ -1,0 +1,12 @@
+abbr.niv84-scripture-reference {
+	cursor: pointer;
+}
+
+div.niv84-scripture-popup {
+	position: absolute;
+	visibility: hidden;
+}
+
+abbr.niv84-scripture-reference:hover + div.niv84-scripture-popup {
+	visibility: visible;
+}
