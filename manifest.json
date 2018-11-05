@@ -2,10 +2,6 @@
 	"name": "Scripture popups",
 	"version": "0.1",
 	"description": "Point to any Bible reference to give a simple popup with the text",
-	"background": {
-		"scripts": ["background.js"],
-		"persistent": false
-	},
 	"content_scripts": [{
 		"matches": ["http://*/*", "https://*/*"],
 		"css": ["niv84-references.css"],
