@@ -1,0 +1,11 @@
+cd `dirname $0`
+echo "[Service]
+User=$USER
+WorkingDirectory=`pwd`/Bible
+ExecStart=/usr/local/bin/pike -x httpserver 8082
+
+[Install]
+WantedBy=multi-user.target
+" >/etc/systemd/system/niv84.service
+systemctl daemon-reload
+systemctl start niv84.service
