@@ -1,15 +1,22 @@
 import os
 import fnmatch
-dir = sorted(os.listdir("Bible"))
+dir = os.listdir("Bible")
 
-def generate_book(book):
+def generate_book(book, strict=True):
 	if book.startswith("#"):
-		return "..." # FIXME
+		ret = []
+		for i in range(1, 4):
+			cur = generate_book(f"{i}%20{book[1:]}", strict=(i == 1))
+			if cur: ret.append(cur)
+		return "	".join(ret)
 	prefix = book + "+"
 	chapters = [int(fn[len(prefix):-5]) for fn in fnmatch.filter(dir, prefix + "*.html")]
+	if not chapters:
+		if strict: raise ValueError("No files found for book %r" % book) # Probable typo in book name
+		return ""
 	chapters.sort()
-	chapters = [f'<li><a href="{book}%2B{chap}.html">{chap}</a></li>\n' for chap in chapters]
-	return f"""	<tr><td>{book}</td><td><ul>
+	chapters = [f'<li><a href="{book.replace("%", "%25")}%2B{chap}.html">{chap}</a></li>\n' for chap in chapters]
+	return f"""	<tr><td>{book.replace("%20", " ")}</td><td><ul>
 		{"		".join(chapters)}
 		</ul></td></tr>
 """
