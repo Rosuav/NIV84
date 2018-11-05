@@ -1,6 +1,7 @@
 import os
 import fnmatch
-dir = os.listdir("Bible")
+dir = set(os.listdir("Bible"))
+dir.discard("index.html")
 
 def generate_book(book, strict=True):
 	if book.startswith("#"):
@@ -10,7 +11,9 @@ def generate_book(book, strict=True):
 			if cur: ret.append(cur)
 		return "	".join(ret)
 	prefix = book + "+"
-	chapters = [int(fn[len(prefix):-5]) for fn in fnmatch.filter(dir, prefix + "*.html")]
+	chapters = fnmatch.filter(dir, prefix + "*.html")
+	dir.difference_update(chapters)
+	chapters = [int(fn[len(prefix):-5]) for fn in chapters]
 	if not chapters:
 		if strict: raise ValueError("No files found for book %r" % book) # Probable typo in book name
 		return ""
@@ -53,3 +56,7 @@ with open("Bible/index.html", "w") as f:
 	</body>
 </html>
 """)
+
+if dir:
+	print("Unused files in directory:")
+	print(", ".join(sorted(fn[:-5].replace("%20", " ").replace("+", " ") for fn in dir)))
