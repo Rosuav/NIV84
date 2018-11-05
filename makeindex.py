@@ -2,6 +2,7 @@ import os
 import fnmatch
 dir = set(os.listdir("Bible"))
 dir.discard("index.html")
+dir.discard("main.css")
 
 def generate_book(book, strict=True):
 	if book.startswith("#"):
@@ -43,9 +44,7 @@ with open("Bible/index.html", "w") as f:
 	<head>
 		<meta charset="utf-8" />
 		<title>NIV84</title>
-		<style>
-		ul, ul li {{display: inline-block; padding: 0.25em;}}
-		</style>
+		<link rel="stylesheet" href="main.css">
 	</head>
 
 	<body>
@@ -59,4 +58,4 @@ with open("Bible/index.html", "w") as f:
 
 if dir:
 	print("Unused files in directory:")
-	print(", ".join(sorted(fn[:-5].replace("%20", " ").replace("+", " ") for fn in dir)))
+	print(", ".join(sorted(dir)))
