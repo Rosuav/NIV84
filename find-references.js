@@ -1,4 +1,6 @@
-console.log("Searching for Scripture references");
+//console.log("Searching for Scripture references");
+//TODO: Somehow notice when new elements are inserted into the DOM and process those
+//but without reprocessing our own creations.
 
 //TODO: Magically accept "Song of Solomon" and other aliases
 const reference = /(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|3 Samuel|1 Kings|2 Kings|3 Kings|1 Chronicles|2 Chronicles|3 Chronicles|Ezra|Nehemiah|Esther|Job|Psalm|Proverbs|Song of Songs|Ecclesiastes|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|3 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|3 Thessalonians|1 Timothy|2 Timothy|3 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|3 Peter|1 John|2 John|3 John|Jude|Revelation) ([0-9]+)/g;
