@@ -4,6 +4,8 @@ dir = set(os.listdir("Bible"))
 dir.discard("index.html")
 dir.discard("main.css")
 
+booknames = []
+
 def generate_book(book, strict=True):
 	if book.startswith("#"):
 		ret = []
@@ -11,6 +13,7 @@ def generate_book(book, strict=True):
 			cur = generate_book(f"{i}%20{book[1:]}", strict=(i == 1))
 			if cur: ret.append(cur)
 		return "	".join(ret)
+	booknames.append(book.replace("%20", " "))
 	prefix = book + "+"
 	chapters = fnmatch.filter(dir, prefix + "*.html")
 	dir.difference_update(chapters)
@@ -60,3 +63,5 @@ with open("Bible/index.html", "w") as f:
 if dir:
 	print("Unused files in directory:")
 	print(", ".join(sorted(dir)))
+# To create/validate the massive regex in find-references.js:
+# print("|".join(booknames))
