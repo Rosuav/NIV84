@@ -3,6 +3,7 @@ import fnmatch
 dir = set(os.listdir("Bible"))
 dir.discard("index.html")
 dir.discard("main.css")
+dir.discard("Scripture-Ref-Hover.crx")
 
 booknames = []
 
