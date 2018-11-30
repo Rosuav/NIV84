@@ -1,4 +1,5 @@
 import os
+import json
 import fnmatch
 dir = set(os.listdir("Bible"))
 dir.discard("index.html")
@@ -6,6 +7,7 @@ dir.discard("main.css")
 dir.discard("Scripture-Ref-Hover.crx")
 
 booknames = []
+booklengths = {}
 
 def generate_book(book, strict=True):
 	if book.startswith("#"):
@@ -23,6 +25,7 @@ def generate_book(book, strict=True):
 		if strict: raise ValueError("No files found for book %r" % book) # Probable typo in book name
 		return ""
 	chapters.sort()
+	booklengths[book.replace("%20", " ")] = chapters[-1]
 	chapters = [f'<li><a href="{book.replace("%", "%25")}%2B{chap}.html">{chap}</a></li>\n' for chap in chapters]
 	return f"""	<tr><td>{book.replace("%20", " ")}</td><td><ul>
 		{"		".join(chapters)}
@@ -60,6 +63,11 @@ with open("Bible/index.html", "w") as f:
 	</body>
 </html>
 """)
+
+with open("Scripture-Ref-Hover/book-lengths.js", "w") as f:
+	print("const booklengths = ", end="", file=f)
+	json.dump(booklengths, f, indent=4)
+	print(";", file=f)
 
 if dir:
 	print("Unused files in directory:")
