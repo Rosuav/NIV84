@@ -60,6 +60,7 @@ with open("Bible/index.html", "w") as f:
 	<h2>New International Version 1984 (NIV1984)</h2>
 	{OT_table}
 	{NT_table}
+	<footer><a href="Scripture-Ref-Hover.crx">Install the autolink extension</a></footer>
 	</body>
 </html>
 """)
